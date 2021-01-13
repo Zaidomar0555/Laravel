@@ -3,15 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+       
         <title>Laravel + Vue</title>
 
      
     </head>
     <body>
         <div id="app">
-           <hello-dev/>
+          
         </div>
-        <script src="{!! asset('js/app.js') !!}"></script>
+        <script src="{!! asset('js/main.js') !!}"></script>
     </body>
 </html>
