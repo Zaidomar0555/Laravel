@@ -1869,25 +1869,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       fields: {},
-      errors: {}
+      errors: {},
+      success: false,
+      loaded: true
     };
   },
   methods: {
     submit: function submit() {
       var _this = this;
 
-      this.errors = {};
-      axios.post('/submit', this.fields).then(function (response) {
-        alert('Message sent!');
-      })["catch"](function (error) {
-        if (error.response.status === 422) {
-          _this.errors = error.response.data.errors || {};
-        }
-      });
+      if (this.loaded) {
+        this.loaded = false;
+        this.success = false;
+        this.errors = {};
+        axios.post('/submit', this.fields).then(function (response) {
+          _this.fields = {}; //Clear input fields.
+
+          _this.loaded = true;
+          _this.success = true;
+        })["catch"](function (error) {
+          _this.loaded = true;
+
+          if (error.response.status === 422) {
+            _this.errors = error.response.data.errors || {};
+          }
+        });
+      }
     }
   }
 });
@@ -20214,7 +20229,13 @@ var render = function() {
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
         [_vm._v("Send message")]
-      )
+      ),
+      _vm._v(" "),
+      _vm.success
+        ? _c("div", { staticClass: "alert alert-success mt-3" }, [
+            _vm._v("\n        Message sent!\n    ")
+          ])
+        : _vm._e()
     ]
   )
 }
