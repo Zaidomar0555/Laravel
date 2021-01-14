@@ -19,4 +19,4 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 
 
-    // this is a comment
+   
