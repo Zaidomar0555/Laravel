@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title> Traditional Home Food</title>
 </head>
-<body class="bg-white">
-<nav class="p-6 bg-gray-200 flex justify-between mb-6">
+<body class="bg-gray-200">
+<nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
             <li><a href="/home" class="p-3">Home</a></li>
             <li><a href="" class="p-3">Menu</a></li>
