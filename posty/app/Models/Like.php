@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Post;
+use App\Models\User;
 
 class Like extends Model
 {
@@ -11,6 +13,7 @@ class Like extends Model
 
     protected $fillable = [
         'user_id',
+        'post_id',
        
     ];
 }
