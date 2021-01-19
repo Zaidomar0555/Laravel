@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
+use App\Http\Controllers\menuOrder\MealController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,8 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 
 
-
+/** This route to get the info/data from MealController */
+Route::get('/menu', [MealController::class, 'index'])->name('menu');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/', function () {
