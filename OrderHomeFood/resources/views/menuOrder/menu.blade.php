@@ -21,7 +21,7 @@
 
  @foreach($members as $member)
 
- <p>{{$member->user()->name}} and {{$member->meal()->name}}  and {{$member->meal()->price}}</p>
+ <p>{{$member->name}}</p>
 
  @endforeach
 

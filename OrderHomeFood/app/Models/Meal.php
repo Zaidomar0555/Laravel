@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Meal extends Model
 {
     use HasFactory;
+
+    public function user(){
+
+        return $this->belongsToMany(User::class, 'junction_tables');
+    }
+
+    // public function userName(){
+
+        
+    // }
+
 }

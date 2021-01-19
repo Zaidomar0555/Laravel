@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function meal(){
+
+        return $this->belongsToMany(Meal::class, 'junction_tables');
+    }
+   
 }
