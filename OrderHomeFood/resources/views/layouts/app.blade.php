@@ -16,16 +16,23 @@
         </ul>
 
         <ul class="flex items-center">
-         
+        @auth
             <li>
-                 <a href="" class="p-3">Zaid</a>
+                 <a href="" class="p-3">{{auth()->user()->name}}</a>
             </li>
-            <li>
-              <a href="" class="p-3">Logout</a>
-            </li>
-            <li><a href="" class="p-3">Login</a></li>
-            <li><a href="" class="p-3">Register</a></li>
             
+            <form action="{{ route('logout') }}" method="post" class=" p-3 inline">
+                @csrf
+
+                <button type="submit">Logout</button>
+
+                </form>
+        @endauth
+
+        @guest
+            <li><a href="{{ route('login') }}" class="p-3">Login</a></li>
+            <li><a href="{{ route('register') }}" class="p-3">Register</a></li>
+        @endguest
         </ul>
     </nav>
     @yield('content')

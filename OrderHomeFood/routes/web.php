@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\LogoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +15,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/**The two routes for register below are for: . the get one is to show the from and the post one is for submitting/posting the form */
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/home', function () {
-    return view('home');
-});
+/** The two routes for login below are for: . the get one is to show the from and the post one is for submitting/posting the form*/
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
+
+
+/** This route is for loging out from the account */
+Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
+
+
+
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+
