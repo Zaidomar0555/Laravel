@@ -31,10 +31,9 @@ Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 
 /** This route to get the info/data from MealController */
 Route::get('/menu', [MealController::class, 'index'])->name('menu');
+Route::get('/mealDetails', [MealController::class, 'showdetails']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/', function () {
 //     return view('home');
 // });
-
-

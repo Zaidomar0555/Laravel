@@ -10,41 +10,37 @@ use App\Models\Meal;
 
 class MealController extends Controller
 {
+
     public function index(){
 
-        //  $meal = JunctionTable::all();
-        //  return view('menuOrder.menu', ['members' => $info]);
-        //return view('menuOrder.menu');
+        $meal = Meal::orderBy('type')->get();
+        return view('menuOrder.menu', ['meals' => $meal]);
 
-        
-
-        // foreach($user->meals as $meal){
-
-        // }
-
-        // the one below, i accessed meal table throgh the user, by using the pivot table
-        // return User::find(1)->meal()->get();
-
-
-        // the one below, i accessed user table throgh the meal, by using the pivot table
-        //return Meal::find(1)->user()->get();
-
-
-        //   $mealUserName =  Meal::get()->user();
-
-        //   return view('menuOrder.menu', ['members' => $mealUserName]);
-
-        
-       
     }
 
+    public function showdetails(){
 
-    // public function testJunction(){
+      return view('menuOrder.mealDetails');
 
-    //     $info = JunctionTable::get();
-    //     return view('menuOrder.menu', ['members' => $info]);
+    }
 
-    // }
+    /*
+    *   // the one below, i accessed meal table throgh the user, by using the pivot table
+      // return User::find(1)->meal()->get();
+
+
+      // the one below, i accessed user table throgh the meal, by using the pivot table
+      //return Meal::find(1)->user()->get();
+
+
+      //  $meal = JunctionTable::all();
+      //  return view('menuOrder.menu', ['members' => $info]);
+      //return view('menuOrder.menu');
+
+    */
+
+
+
 
 
 }

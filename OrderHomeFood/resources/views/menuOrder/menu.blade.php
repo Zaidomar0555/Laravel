@@ -9,149 +9,133 @@
 <div class="flex justify-center">
 
     <div class="w-8/12 bg-white p-6 rounded-lg">
-        <p class="text-center">Intro for the site </p>
-         
+        <h1 class="text-center">Menu</h1>
+
+
+
 
     </div>
 
-    
+
 
 </div>
 
-
- @foreach($members as $member)
-
- <p>{{$member->name}}</p>
-
- @endforeach
-
+<br>
 
 <div class="row">
 
-<div class="col-4-lg">
+  <h1 class="text-center font-serif text-2xl font-bold">AUTHENTIC</h1>
+  <br>
+  <div class="grid grid-cols-3 divide-x divide-gray-500">
 
-<div class="flex justify-center p-6">
+    @foreach($meals as $meal)
+      @if($meal->type == "authentic")
 
-<div class="flex space-x-24">
-    <div class="w-8/8 bg-white p-6 rounded-lg">
-
-        <div>picture</div>
-        <div>info about that meal </div>
-    
-    </div> 
-
-     <div class="w-8/8 bg-white p-6 rounded-lg">
-
-         <div>picture</div>
-        <div>info about that meal </div>
-    
-     </div> 
-
-
-     <div class="w-8/8 bg-white p-6 rounded-lg">
-
-         <div>picture</div>
-        <div>info about that meal </div>
-    
-     </div> 
+      <div class="flex justify-center" >
+           <ul>
+             <h2 class="text-center font-black">Name:</h2>
+              <form class="text-center" action="{{route('menu.mealDetails')}}" method="get">
+                  <button type="submit">{{$meal->name}}</button>
+              </form>
+              <h2 class="text-center font-black">Description:</h2>
+             <li class="text-center"> {{$meal->description}}</li>
+             <h2 class="text-center font-black">Price:</h2>
+             <li class="text-center">${{$meal->price}}</li>
+             <br>
+           </ul>
 
 
-     <div class="w-8/8 bg-white p-6 rounded-lg">
+      </div>
 
-         <div>picture</div>
-        <div>info about that meal </div>
-    
-     </div> 
+      @endif
+    @endforeach
 
-     
-</div>
-</div>
+
+
+
+  </div>
+
 
 </div>
 
-<div class="col-4-lg">
+<br><br>
 
-    <div class="flex justify-center p-6">
-    
-    <div class="flex space-x-24">
-        <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-        <div>picture</div>
-        <div>info about that meal </div>
-        
-        </div> 
- 
-         <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-         <div>picture</div>
-        <div>info about that meal </div>
-        
-         </div> 
+<div class="row">
 
+  <h1 class="text-center font-serif text-2xl font-bold">MEAT</h1>
+  <br>
+  <div class="grid grid-cols-3 divide-x divide-gray-500">
 
-         <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-         <div>picture</div>
-        <div>info about that meal </div>
-        
-         </div> 
+    @foreach($meals as $meal)
+      @if($meal->type == "meat")
+
+      <div class="flex justify-center" >
+        <ul>
+          <h2 class="text-center font-black">Name:</h2>
+          <li class="text-center">{{$meal->name}}</li>
+           <h2 class="text-center font-black">Description:</h2>
+          <li class="text-center"> {{$meal->description}}</li>
+          <h2 class="text-center font-black">Price:</h2>
+          <li class="text-center">${{$meal->price}}</li>
+          <br>
+        </ul>
 
 
-         <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-         <div>picture</div>
-        <div>info about that meal </div>
-        
-         </div> 
- 
-         
-    </div>
- </div>
+      </div>
 
-    </div>
-
-    <div class="col-4-lg">
-
-    <div class="flex justify-center p-6">
-    
-    <div class="flex space-x-24">
-        <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-        <div>picture</div>
-        <div>info about that meal </div>
-        
-        </div> 
- 
-         <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-         <div>picture</div>
-        <div>info about that meal </div>
-        
-         </div> 
+      @endif
+    @endforeach
 
 
-         <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-         <div>picture</div>
-        <div>info about that meal </div>
-        
-         </div> 
 
 
-         <div class="w-8/8 bg-white p-6 rounded-lg">
- 
-         <div>picture</div>
-        <div>info about that meal </div>
-        
-         </div> 
- 
-         
-    </div>
- </div>
+  </div>
 
-    </div>
 
 </div>
+
+<br><br>
+
+<div class="row">
+
+  <h1 class="text-center font-serif text-2xl font-bold">SALAD</h1>
+  <br>
+  <div class="grid grid-cols-3 divide-x divide-gray-500">
+
+    @foreach($meals as $meal)
+      @if($meal->type == "salad")
+
+      <div class="flex justify-center" >
+        <ul>
+          <h2 class="text-center font-black">Name:</h2>
+          <li class="text-center">{{$meal->name}}</li>
+           <h2 class="text-center font-black">Description:</h2>
+          <li class="text-center"> {{$meal->description}}</li>
+          <h2 class="text-center font-black">Price:</h2>
+          <li class="text-center">${{$meal->price}}</li>
+          <br>
+        </ul>
+
+
+      </div>
+
+      @endif
+    @endforeach
+
+
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
 
 
 
