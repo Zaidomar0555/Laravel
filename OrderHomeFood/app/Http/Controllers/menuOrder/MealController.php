@@ -30,58 +30,54 @@ class MealController extends Controller
 
     }
 
-  public function showTotal(/*$username*/){
+  public function showTotal(/*$username*/)
+    {
 
 
 
     //$check =  Meal::where('name', $username)->get()->all();
-    $count = Meal::count();
-    $check = Meal::sum('price');
+      $count = Meal::count();
+      $check = Meal::sum('price');
 
 
     // Maybe if make a loop that loops through the values of that selected names and add their values. after that, i will show
-    // the results in a different page as a reciept to the customer. 
-     $testSumTwoCol = Meal::where('name', '=', 'xx')->value('price');
-     $testsum = Meal::where('name', '=', 'vvc')->value('price');
-     $total = $testSumTwoCol + $testsum;
+    // the results in a different page as a reciept to the customer.
+      $testSumTwoCol = Meal::where('name', '=', 'xx')->value('price');
+      $testsum = Meal::where('name', '=', 'vvc')->value('price');
+      $total = $testSumTwoCol + $testsum;
 
-
-
-    //$total = 0;
-
-    // for($i = 0; $i<$count; $i++){
-    //   $total = $check->values($i) + $total;
-    // }
-
-
-    if($check == true){
-        dd($count,$check,$total);
-       //return view('menuOrder.mealDetails', ['memebrs' => $check]);
-    }
-    else{
+      if($check == true)
+      {
+          dd($count,$check,$total);
+          //return view('menuOrder.mealDetails', ['memebrs' => $check]);
+      }
+      else
+      {
       dd("name is not found");
-    }
+      }
 
-
-
-      //return view('menuOrder.mealDetails');
 
     }
 
-    /*
-    *   // the one below, i accessed meal table throgh the user, by using the pivot table
-      // return User::find(1)->meal()->get();
+    public function showResult($username)
+    {
 
+      //check if the name exists, if yes, then get the price of that meal.
+      //User::find(1)->meal()->get();
+      // my idea, i will make a while loop that sets to true, and make a button/done order button,
+      //when i click the button, the bool will set to false, which it will stop the while loop and get the total values(price) of the names clicked
+      // and get the total price of all th selected names(meals).
+      $bool = true;
+      $check = Meal::where('name', '=', $username)->value('price');
 
-      // the one below, i accessed user table throgh the meal, by using the pivot table
-      //return Meal::find(1)->user()->get();
+    if($bool != false){
+      return  dd($check);
+    }
+    //  $check = Meal::where('name', '=', $username)->value('price');
 
+      // return view('menuOrder.orderResults',['results' => $bool]);
 
-      //  $meal = JunctionTable::all();
-      //  return view('menuOrder.menu', ['members' => $info]);
-      //return view('menuOrder.menu');
-
-    */
+    }
 
 
 
