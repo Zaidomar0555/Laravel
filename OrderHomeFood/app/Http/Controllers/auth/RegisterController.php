@@ -28,7 +28,7 @@ class RegisterController extends Controller
      /*
      This function "store" will do the following:
      1 - validate the form so the user can see if they miss an input
-     2- store the input in the database 
+     2- store the input in the database
      3- (sign the user in)
      4-  redirect the user
      */
@@ -45,7 +45,7 @@ class RegisterController extends Controller
 
         //2- create: create is to store the user info in the database
         User::create([
-  
+
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
@@ -56,7 +56,7 @@ class RegisterController extends Controller
 
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route('home');
+        return redirect()->route('menu');
 
         //dd('store');
 

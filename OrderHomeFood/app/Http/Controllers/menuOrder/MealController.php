@@ -4,12 +4,24 @@ namespace App\Http\Controllers\menuOrder;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Input;
 use App\Models\Meal;
 
 
 class MealController extends Controller
 {
+
+  public function __construct(){
+      $this->middleware(['guest']);
+  }
+
+  // public function __construct(){
+  //     $this->middleware(['auth']);
+  // }
+
+
+
+
 
     public function index(){
 
@@ -18,9 +30,33 @@ class MealController extends Controller
 
     }
 
-    public function showdetails(){
+  public function showTotal(/*$username*/){
 
-      return view('menuOrder.mealDetails');
+
+
+    //$check =  Meal::where('name', $username)->get()->all();
+    $count = Meal::count();
+    $check = Meal::sum('price');
+    // $testSumTwoCol = Meal::orderBy('')
+
+    //$total = 0;
+
+    // for($i = 0; $i<$count; $i++){
+    //   $total = $check->values($i) + $total;
+    // }
+
+
+    if($check == true){
+        dd($count,$check);
+       //return view('menuOrder.mealDetails', ['memebrs' => $check]);
+    }
+    else{
+      dd("name is not found");
+    }
+
+
+
+      //return view('menuOrder.mealDetails');
 
     }
 

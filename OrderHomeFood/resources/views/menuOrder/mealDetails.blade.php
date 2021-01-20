@@ -3,5 +3,11 @@
 
 @section('content')
 
-<h1>Hello</h1>
+<h1>Here the details about the item selected</h1>
+@foreach($memebrs as $check)
+
+<p>{{$check->name}}</p>
+
+@endforeach
+
 @endsection

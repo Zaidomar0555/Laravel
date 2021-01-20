@@ -5,11 +5,25 @@
 
 
 
-
+  <h1 class="text-center font-serif text-2xl font-bold ">Menu</h1>
 <div class="flex justify-center">
 
+
     <div class="w-8/12 bg-white p-6 rounded-lg">
-        <h1 class="text-center">Menu</h1>
+
+        @auth
+
+          <h1 class="text-center">Hello {{auth()->user()->name}}</h1>
+
+
+        @endauth
+
+
+        @guest
+             <h1 class="text-center">Dear guest, if you wish to order, please <a href="/login" class="text-blue-500"> LOGIN </a> first.
+               You do not have an accout? please <a href="/register" class="text-blue-500"> REGISTER </a> </h1>
+        @endguest
+
 
 
 
@@ -34,9 +48,7 @@
       <div class="flex justify-center" >
            <ul>
              <h2 class="text-center font-black">Name:</h2>
-              <form class="text-center" action="{{route('menu.mealDetails')}}" method="get">
-                  <button type="submit">{{$meal->name}}</button>
-              </form>
+             <li class="text-center"><a href="{{url('/mealDetails/' .$meal->name)}}">{{$meal->name}}</a></li>
               <h2 class="text-center font-black">Description:</h2>
              <li class="text-center"> {{$meal->description}}</li>
              <h2 class="text-center font-black">Price:</h2>
