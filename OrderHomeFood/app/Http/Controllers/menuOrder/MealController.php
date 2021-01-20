@@ -37,7 +37,15 @@ class MealController extends Controller
     //$check =  Meal::where('name', $username)->get()->all();
     $count = Meal::count();
     $check = Meal::sum('price');
-    // $testSumTwoCol = Meal::orderBy('')
+
+
+    // Maybe if make a loop that loops through the values of that selected names and add their values. after that, i will show
+    // the results in a different page as a reciept to the customer. 
+     $testSumTwoCol = Meal::where('name', '=', 'xx')->value('price');
+     $testsum = Meal::where('name', '=', 'vvc')->value('price');
+     $total = $testSumTwoCol + $testsum;
+
+
 
     //$total = 0;
 
@@ -47,7 +55,7 @@ class MealController extends Controller
 
 
     if($check == true){
-        dd($count,$check);
+        dd($count,$check,$total);
        //return view('menuOrder.mealDetails', ['memebrs' => $check]);
     }
     else{
