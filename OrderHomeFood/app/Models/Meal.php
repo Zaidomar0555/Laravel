@@ -16,7 +16,11 @@ class Meal extends Model
 
     // public function userName(){
 
-        
+
     // }
+
+    public function post(){
+      return $this->hasMany(Post::class);
+    }
 
 }

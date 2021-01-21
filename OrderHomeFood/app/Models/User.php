@@ -47,5 +47,9 @@ class User extends Authenticatable
 
         return $this->belongsToMany(Meal::class, 'junction_tables');
     }
-   
+
+    public function post(){
+      return $this->hasMany(Post::class);
+    }
+
 }
