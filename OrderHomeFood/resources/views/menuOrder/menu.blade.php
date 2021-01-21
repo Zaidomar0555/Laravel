@@ -34,7 +34,15 @@
 
 </div>
 
+<div class="row">
+
+  <a  href="{{url('/total')}}" type="submit"  value="total">show total</a>
+
+
+</div>
+
 <br>
+
 
 <div class="row">
 
@@ -46,9 +54,11 @@
       @if($meal->type == "authentic")
 
       <div class="flex justify-center" >
+
            <ul>
+             <h1 class="text-center text-2xl text-blue"><a href="#" value="order">Order</a></h1>
              <h2 class="text-center font-black">Name:</h2>
-             <li class="text-center"><a href="{{url('/mealDetails/' .$meal->name)}}">{{$meal->name}}</a></li>
+             <li class="text-center"><a href="">{{$meal->name}}</a></li>
               <h2 class="text-center font-black">Description:</h2>
              <li class="text-center"> {{$meal->description}}</li>
              <h2 class="text-center font-black">Price:</h2>
@@ -61,7 +71,7 @@
 
       @endif
     @endforeach
-
+  
 
 
 
@@ -83,8 +93,9 @@
 
       <div class="flex justify-center" >
         <ul>
+          <h1 class="text-center text-2xl text-blue"><a href="#">Order</a></h1>
           <h2 class="text-center font-black">Name:</h2>
-          <li class="text-center">{{$meal->name}}</li>
+          <li class="text-center"><a href="" value="mealName">{{$meal->name}}</a></li>
            <h2 class="text-center font-black">Description:</h2>
           <li class="text-center"> {{$meal->description}}</li>
           <h2 class="text-center font-black">Price:</h2>
@@ -119,8 +130,9 @@
 
       <div class="flex justify-center" >
         <ul>
+           <h1 class="text-center text-2xl text-blue"><a href="#">Order</a></h1>
           <h2 class="text-center font-black">Name:</h2>
-          <li class="text-center">{{$meal->name}}</li>
+          <li class="text-center"><a href="" value="mealName">{{$meal->name}}</a></li>
            <h2 class="text-center font-black">Description:</h2>
           <li class="text-center"> {{$meal->description}}</li>
           <h2 class="text-center font-black">Price:</h2>

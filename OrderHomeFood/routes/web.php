@@ -31,8 +31,8 @@ Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 
 /** This route to get the info/data from MealController */
 Route::get('/menu', [MealController::class, 'index'])->name('menu');
-Route::get('/mealDetails', [MealController::class, 'showTotal']);
-Route::get('/reslts', [MealController::class, 'showResult']);
+Route::get('/total', [MealController::class, 'showTotal']);
+//Route::get('/results', [MealController::class, 'showResult']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/', function () {
